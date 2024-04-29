@@ -1,4 +1,4 @@
-# Company Category Classifier Extension
+# Company Category Classifier 
 
 ## Overview
 This extension leverages OpenAI's GPT-3.5 model to classify companies into categories such as remote, hybrid, or onsite based on their provided company name, description, and about information.
