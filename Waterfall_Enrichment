@@ -39,3 +39,31 @@ If you encounter any issues with the extension, refer to the troubleshooting sec
 
 Contributions to the Waterfall Enrichment extension are welcome! If you have suggestions, improvements, or bug fixes, feel free to open a pull request following the contribution guidelines.
 
+## Code Explanation
+
+The Waterfall Enrichment extension script (`waterfall-enrichment.js`) performs the following steps:
+
+1. **Retrieve Records:** Fetch records from the specified table (`Waterfall Enrichment`) using the `selectRecordsAsync` method.
+
+2. **API Key Setup:**
+   - `emailValidationApiKey`: API key for email validation using BounceBan.
+
+3. **Enrichment Workflow:**
+   - Iterate through each record to extract necessary data such as email, website, first name, and last name.
+   - Use LeadMagic API (`https://api.leadmagic.io/email-finder`) to find emails based on first name, last name, and company domain.
+   - If LeadMagic does not return a valid email, fallback to UseArtemis API (`https://api.useartemis.co/enrich/email`).
+   - If UseArtemis also fails, use Tomba API (`https://api.tomba.io/v1/email-finder`) as a final fallback option.
+
+4. **Email Validation:**
+   - Validate retrieved emails using BounceBan API (`https://api.bounceban.com/v1/verify/single`) to determine deliverability.
+   - Update the record in the table with the retrieved email and its validation status (`valid` or `invalid`).
+
+## Installation and Execution
+
+To use the Waterfall Enrichment extension:
+
+1. Ensure you have the necessary API keys for LeadMagic, UseArtemis, Tomba, and BounceBan.
+2. Modify the extension script (`waterfall-enrichment.js`) to include your API keys and endpoints.
+3. Run the script using Node.js:
+   ```bash
+   node waterfall-enrichment.js
