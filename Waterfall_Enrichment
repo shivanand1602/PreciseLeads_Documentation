@@ -1,0 +1,41 @@
+# Waterfall Enrichment Extension
+
+The Waterfall Enrichment extension is designed to enrich lead emails by utilizing multiple tools such as LeadMagic, UseArtemis, Tomba, and BounceBan. It follows a waterfall approach where if one tool fails to find the email, the next tool in line is used until the email is successfully retrieved. The retrieved email is then validated using BounceBan to determine its validity.
+
+## Features
+
+- **Email Enrichment:** The extension enriches lead emails using LeadMagic, UseArtemis, and Tomba APIs.
+- **Fallback Mechanism:** If one tool fails to find the email, the extension automatically switches to the next available tool until the email is found.
+- **Email Validation:** After retrieving the email, BounceBan is used to validate its deliverability and ensure it is a valid email address.
+
+## Workflow
+
+The workflow of the Waterfall Enrichment extension follows these steps:
+
+1. **Input Data:** Receive input data such as lead's first name, last name, and company domain.
+2. **Tool Selection:**
+   - Try LeadMagic API first to find the email based on the provided information.
+   - If LeadMagic does not return a valid email, switch to UseArtemis to attempt email retrieval.
+   - If UseArtemis also fails, use Tomba as a fallback option to find the email.
+3. **Email Validation:** Once an email is successfully retrieved, BounceBan API is used to validate the email's deliverability and check if it's a valid email address.
+
+## Installation and Configuration
+
+To use the Waterfall Enrichment extension, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install any necessary dependencies specified in the installation guide.
+3. Configure API keys and endpoints for LeadMagic, UseArtemis, Tomba, and BounceBan in the extension's configuration file.
+
+## Usage
+
+After installation and configuration, you can run the Waterfall Enrichment extension to enrich lead emails automatically. Make sure to provide the required input data according to the extension's input format.
+
+## Troubleshooting
+
+If you encounter any issues with the extension, refer to the troubleshooting section in the documentation or check the console logs for error messages. Common troubleshooting steps include verifying API keys, checking network connectivity, and ensuring proper input data format.
+
+## Contributing
+
+Contributions to the Waterfall Enrichment extension are welcome! If you have suggestions, improvements, or bug fixes, feel free to open a pull request following the contribution guidelines.
+
