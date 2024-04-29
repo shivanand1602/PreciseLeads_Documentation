@@ -24,10 +24,15 @@ node smartlead_hubspot_integration.js
 The provided code performs the following actions:
 
 1.Fetches lead records from Airtable.
+
 2.Prepares lead data for HubSpot, including email, name, company, website, LinkedIn URL, etc.
+
 3.Makes a POST request to create a new organization in Pipedrive.
+
 4.Makes a POST request to create a new person associated with the organization in Pipedrive.
+
 5.Updates the Airtable status field to mark successful integration.
+
 
 ## Contributing
 Contributions are welcome. Follow the guidelines in the repository for contributions.
